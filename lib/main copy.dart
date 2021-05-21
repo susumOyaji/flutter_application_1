@@ -558,7 +558,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     //Color(0x0B52067),
                     //Color(0xff6d2af7),
                     Colors.black,
-                    Colors.grey[800],
+                    Colors.grey.shade800,
                   ],
                 ),
                 borderRadius: BorderRadius.only(
@@ -739,7 +739,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  Future<String> _asyncInputDialog(BuildContext context) async {
+  Future _asyncInputDialog(BuildContext context) async {
     showDialog<String>(
       context: context,
       barrierDismissible:
@@ -853,7 +853,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Future<String> _asyncEditDialog(BuildContext context, int index) async {
+  Future _asyncEditDialog(BuildContext context, int index) async {
     final TextEditingController _codeFieldController =
         TextEditingController(text: codeItems[index]);
     final TextEditingController _stackFieldController =
@@ -1006,7 +1006,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         //Color(0x0B52067),
                                         Colors.white,
                                         //Colors.grey[800],
-                                        Colors.grey[800],
+                                        Colors.grey.shade800,
 
                                         //Color(0xff6d2af7),
                                       ],
@@ -1051,7 +1051,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     //Color(0xffb43af7),
                                     //Color(0x0B52067),
                                     Colors.black,
-                                    Colors.grey[800],
+                                    Colors.grey.shade800,
 
                                     //Color(0xff6d2af7),
                                   ],
@@ -1104,7 +1104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     //Color(0xffb43af7),
                                     //Color(0x0B52067),
                                     Colors.black,
-                                    Colors.grey[800],
+                                    Colors.grey.shade800,
 
                                     //Color(0xff6d2af7),
                                   ],
@@ -1140,7 +1140,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       //Color(0x0B52067),
                                       //Color(0xff6d2af7),
                                       Colors.black,
-                                      Colors.grey[800],
+                                      Colors.grey.shade800,
                                     ],
                                   ),
                                   borderRadius: BorderRadius.only(
