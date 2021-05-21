@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:http/http.dart' as http;
-import 'package:stockcard/Clipper.dart';
+import 'package:flutter_application_1/Clipper.dart';
 import 'shared_prefs.dart';
 import 'package:flutter/cupertino.dart';
 import 'dart:io' show Platform;
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -108,9 +108,9 @@ class _MyHomePageState extends State<MyHomePage> {
   int acquiredAssetsSum = 0; //取得資産合計
   int valuableAssetsSum = 0; //評価資産合計
 
-  String valueSum;
-  String presentvalueSUm;
-  String openTime;
+  String valueSum = '';
+  String presentvalueSUm = '';
+  String openTime = '';
 
   bool _validateCode = false;
   bool _validateStock = false;
@@ -135,7 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   //int count;
   static bool isUpDown = false;
-  String codename; //="Null to String";
+  String codename = ''; //="Null to String";
   int intprice = 0;
   int index = 0;
   //bool purchase = false;
@@ -740,7 +740,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<String> _asyncInputDialog(BuildContext context) async {
-    return showDialog<String>(
+    showDialog<String>(
       context: context,
       barrierDismissible:
           false, // dialog is dismissible with a tap on the barrier
@@ -861,7 +861,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final TextEditingController _valueFieldController =
         TextEditingController(text: valueItems[index]);
 
-    return showDialog<String>(
+    showDialog<String>(
       context: context,
       barrierDismissible:
           false, // dialog is dismissible with a tap on the barrier
