@@ -740,7 +740,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<String> _asyncInputDialog(BuildContext context) async {
-    showDialog<String>(
+    return showDialog<String>(
       context: context,
       barrierDismissible:
           false, // dialog is dismissible with a tap on the barrier
@@ -861,7 +861,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final TextEditingController _valueFieldController =
         TextEditingController(text: valueItems[index]);
 
-    showDialog<String>(
+    return showDialog<String>(
       context: context,
       barrierDismissible:
           false, // dialog is dismissible with a tap on the barrier
