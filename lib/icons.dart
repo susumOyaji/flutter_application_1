@@ -11,7 +11,7 @@
 ///      fonts:
 ///       - asset: fonts/MyFlutterApp.ttf
 ///
-/// 
+///
 /// * Material Design Icons, Copyright (C) Google, Inc
 ///         Author:    Google
 ///         License:   Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
@@ -27,9 +27,12 @@ class MyFlutterApp {
   MyFlutterApp._();
 
   static const _kFontFam = 'MyFlutterApp';
-  static const String _kFontPkg = null;
+  static const /*String*/ _kFontPkg = null;
 
-  static const IconData add = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData add_a_photo = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData yen = IconData(0xf157, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add =
+      IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_a_photo =
+      IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData yen =
+      IconData(0xf157, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

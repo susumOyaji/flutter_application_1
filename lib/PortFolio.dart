@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//mport 'main.dart';
+//import 'main.dart';
 
 //Parsonal Data Disp
 class PortFolio extends StatelessWidget {

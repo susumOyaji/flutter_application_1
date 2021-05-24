@@ -53,6 +53,16 @@ class MyHomePage extends StatefulWidget {
 void _setTargetPlatformForDesktop() {
   TargetPlatform targetPlatform;
   if (Platform.isMacOS) {
+    debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
+  } else if (Platform.isLinux || Platform.isWindows) {
+    debugDefaultTargetPlatformOverride =
+        TargetPlatform.android; // ←　Linux/Windowsデスクトップ向けはこれが必要！
+  } else if (Platform.isFuchsia) {
+    debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
+  }
+
+  /*
+  if (Platform.isMacOS) {
     targetPlatform = TargetPlatform.iOS;
   } else if (Platform.isLinux || Platform.isWindows) {
     targetPlatform = TargetPlatform.android;
@@ -60,6 +70,7 @@ void _setTargetPlatformForDesktop() {
   if (targetPlatform != null) {
     debugDefaultTargetPlatformOverride = targetPlatform;
   }
+  */
 }
 
 //カンマ区切り文字列を整数に変換
@@ -246,7 +257,8 @@ class _MyHomePageState extends State<MyHomePage> {
     List<String> changepriceRate = changePriceRate
         .allMatches(json)
         .map((match) => match.group(0))
-        .toList();
+        .toList()
+        .cast();
 
     List<String> tmp = [];
     for (int i = 0; i < changepriceRate.length; i++) {
@@ -259,7 +271,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     RegExp regpola = RegExp(r'<span class="_3HWBPedk"><span>.*?</span>');
     List<String> pola =
-        regpola.allMatches(json).map((match) => match.group(0)).toList();
+        regpola.allMatches(json).map((match) => match.group(0)).toList().cast();
     String sig = pola[0].replaceAll(RegExp("[^-+]"), "");
     dow[1] = sig + dow[1];
     dow[2] = sig + dow[2];
@@ -285,8 +297,11 @@ class _MyHomePageState extends State<MyHomePage> {
     debugPrint("OpenTime:" + openTime);
 
     RegExp regprice = RegExp(r'<td class=".*?</td>');
-    List<String> price =
-        regprice.allMatches(json).map((match) => match.group(0)).toList();
+    List<String> price = regprice
+        .allMatches(json)
+        .map((match) => match.group(0))
+        .toList()
+        .cast();
 
     List<String> tmp = [];
     for (int i = 0; i < 2; i++) {
@@ -342,8 +357,11 @@ class _MyHomePageState extends State<MyHomePage> {
       List<String> valuelist = [];
 
       RegExp regPrice = RegExp(r'<span class="_3rXWJKZF">.*?</span>'); //現在値
-      List<String> price =
-          regPrice.allMatches(json).map((match) => match.group(0)).toList();
+      List<String> price = regPrice
+          .allMatches(json)
+          .map((match) => match.group(0))
+          .toList()
+          .cast();
 
       List<String> tmp = [];
       for (int i = 0; i < price.length; i++) {

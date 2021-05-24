@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'debug/main_card.dart';
 import 'package:http/http.dart' as http;
 //import 'PortFolio.dart';
 //import 'ViewModel/Finance.dart';
