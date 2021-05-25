@@ -248,10 +248,15 @@ class _MyHomePageState extends State<MyHomePage> {
   Future get_dowhtmls() async {
     List<String> dow = [];
 
-    final uri = Uri.https(
-        'https://finance.yahoo.co.jp/quote/%5EDJI', 'api/public/user');
+    var url = Uri.parse('https://finance.yahoo.co.jp/quote/%5EDJI');
+    var response =
+        await http.post(url, body: {'name': 'doodle', 'color': 'blue'});
+    print('Response body: ${response.body}');
 
-    final response = await http.get(uri); //^DJI
+    //final uri = Uri.https(
+    //    'https://finance.yahoo.co.jp/quote/%5EDJI', 'api/public/user');
+
+    //final response = await http.get(uri); //^DJI
 
     String json = response.body;
 
@@ -289,10 +294,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Future get_nikkeihtmls() async {
     List<String> nikkei = [];
 
-    final response = await http
-        .get('https://stocks.finance.yahoo.co.jp/stocks/detail/?code=998407.O');
+    //final response = await http
+    //    .get('https://stocks.finance.yahoo.co.jp/stocks/detail/?code=998407.O');
 
-    String json = response.body;
+    String json = '';
+    //response.body;
 
     RegExp regExp = RegExp(r'> --.*?<');
     openTime = regExp.stringMatch(json).toString(); //name
