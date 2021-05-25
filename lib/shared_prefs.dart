@@ -16,7 +16,6 @@ class SharePrefs {
 
   static Future setInstance() async {
     if (null != _sharedPreferences) return;
-
     _sharedPreferences = await SharedPreferences.getInstance();//インスタンスを取得する
 /*
     _sharedPreferences.remove(list_Items);

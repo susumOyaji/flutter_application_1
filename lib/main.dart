@@ -289,10 +289,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Future get_nikkeihtmls() async {
     List<String> nikkei = [];
 
-    //final response = await http
-    //    .get('https://stocks.finance.yahoo.co.jp/stocks/detail/?code=998407.O');
+    final response = await http
+        .get('https://stocks.finance.yahoo.co.jp/stocks/detail/?code=998407.O');
 
-    String json = ''; //response.body;
+    String json = response.body;
 
     RegExp regExp = RegExp(r'> --.*?<');
     openTime = regExp.stringMatch(json).toString(); //name
