@@ -10,12 +10,14 @@ class SharePrefs {
   static final acquiredAssets_Items = "acquiredAssets_Items";
   static final valuableAssets_Items = "valuableAssets_Items";
 
-  static SharedPreferences _sharedPreferences;
+
+ 
+  static late SharedPreferences _sharedPreferences;
 
   static Future setInstance() async {
     if (null != _sharedPreferences) return;
 
-    _sharedPreferences = await SharedPreferences.getInstance();
+    _sharedPreferences = await SharedPreferences.getInstance();//インスタンスを取得する
 /*
     _sharedPreferences.remove(list_Items);
     _sharedPreferences.remove(completed_Items);

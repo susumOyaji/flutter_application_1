@@ -74,8 +74,9 @@ Future get_dowhtmls() async {
 //Nikkey And NewYork Dow Display
 class MaketStandard extends StatelessWidget {
   MaketStandard({this.dow_Value, this.nikkei_Value});
-  final List<String> dow_Value;
-  final List<String> nikkei_Value;
+  final List<String>? dow_Value;
+  final List<String>? nikkei_Value;
+
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +91,7 @@ class MaketStandard extends StatelessWidget {
               CircleAvatar(
                 maxRadius: 5.0,
                 backgroundColor:
-                    dow_Value[3] == 'true' ? Colors.red : Colors.green,
+                    dow_Value![3] == 'true' ? Colors.red : Colors.green,
               ),
               Text(
                 "Dow Price: \$ ",
@@ -100,7 +101,7 @@ class MaketStandard extends StatelessWidget {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: '${dow_Value[0]}',
+                      text: '${dow_Value![0]}',
                       style: TextStyle(
                         fontSize: 12.0, //fontWeight: FontWeight.bold,
                         color: Colors.blueAccent,
@@ -127,11 +128,11 @@ class MaketStandard extends StatelessWidget {
                       style: TextStyle(fontSize: 10.0, color: Colors.white),
                     ),
                     TextSpan(
-                      text: '${dow_Value[1] + "   " + dow_Value[2] + "%"}',
+                      text: '${dow_Value![1] + "   " + dow_Value![2] + "%"}',
                       style: TextStyle(
                         fontSize: 12.0,
                         color:
-                            dow_Value[3] == 'true' ? Colors.red : Colors.green,
+                            dow_Value![3] == 'true' ? Colors.red : Colors.green,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -147,7 +148,7 @@ class MaketStandard extends StatelessWidget {
               CircleAvatar(
                 maxRadius: 5.0,
                 backgroundColor:
-                    nikkei_Value[3] == 'true' ? Colors.red : Colors.green,
+                    nikkei_Value![3] == 'true' ? Colors.red : Colors.green,
               ),
               Text(
                 "Nikkey Price",
@@ -161,7 +162,7 @@ class MaketStandard extends StatelessWidget {
                       style: TextStyle(fontSize: 10.0, color: Colors.white),
                     ),
                     TextSpan(
-                      text: '${nikkei_Value[0]}',
+                      text: '${nikkei_Value![0]}',
                       style: TextStyle(
                         fontSize: 12.0,
                         color: Colors.blueAccent, //fontWeight: FontWeight.bold,
@@ -190,10 +191,10 @@ class MaketStandard extends StatelessWidget {
                       style: TextStyle(fontSize: 10.0, color: Colors.white),
                     ),
                     TextSpan(
-                      text: '${nikkei_Value[1] + "  " + nikkei_Value[2]}',
+                      text: '${nikkei_Value![1] + "  " + nikkei_Value![2]}',
                       style: TextStyle(
                         fontSize: 12.0,
-                        color: nikkei_Value[3] == 'true'
+                        color: nikkei_Value?[3] == 'true'
                             ? Colors.red
                             : Colors.green,
                         fontWeight: FontWeight.bold,

@@ -8,10 +8,10 @@ class PortFolio extends StatelessWidget {
       this.portassetTotal,
       this.portassetvalue,
       this.signal});
-  final String portassetPrice;
-  final String portassetTotal;
-  final String portassetvalue;
-  final bool signal;
+  final String? portassetPrice;
+  final String? portassetTotal;
+  final String? portassetvalue;
+  final bool? signal;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class PortFolio extends StatelessWidget {
               CircleAvatar(
                 maxRadius: 5.0,
                 backgroundColor:
-                    signal ? Colors.orange : Colors.green, //Colors.green,
+                    signal! ? Colors.orange : Colors.green, //Colors.green,
               ),
               Text(
                 "Market price", //"Gain or loss",
@@ -43,7 +43,7 @@ class PortFolio extends StatelessWidget {
                       text: '$portassetPrice',
                       style: TextStyle(
                         fontSize: 24.0,
-                        color: signal ? Colors.orange : Colors.green,
+                        color: signal! ? Colors.orange : Colors.green,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
