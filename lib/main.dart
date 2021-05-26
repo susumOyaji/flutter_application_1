@@ -248,15 +248,15 @@ class _MyHomePageState extends State<MyHomePage> {
   Future get_dowhtmls() async {
     List<String> dow = [];
 
-    var url = Uri.parse('https://finance.yahoo.co.jp/quote/%5EDJI');
-    var response =
-        await http.post(url, body: {'name': 'doodle', 'color': 'blue'});
-    print('Response body: ${response.body}');
+    //var url = Uri.parse('https://finance.yahoo.co.jp/quote/%5EDJI');
+    //var response = await http.post(url);
 
     //final uri = Uri.https(
     //    'https://finance.yahoo.co.jp/quote/%5EDJI', 'api/public/user');
 
-    //final response = await http.get(uri); //^DJI
+    final response = await http
+        .get(Uri.parse('https://finance.yahoo.co.jp/quote/%5EDJI')); //^DJI
+    //print('Response body: ${response.body}');
 
     String json = response.body;
 
@@ -296,9 +296,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
     //final response = await http
     //    .get('https://stocks.finance.yahoo.co.jp/stocks/detail/?code=998407.O');
-
-    String json = '';
-    //response.body;
+    final response = await http.get(Uri.parse(
+        'https://stocks.finance.yahoo.co.jp/stocks/detail/?code=998407.O')); //^DJI
+    //print('Response body: ${response.body}');
+    String json = response.body;
 
     RegExp regExp = RegExp(r'> --.*?<');
     openTime = regExp.stringMatch(json).toString(); //name
@@ -357,8 +358,10 @@ class _MyHomePageState extends State<MyHomePage> {
       //    await http.get("https://finance.yahoo.co.jp/quote/$item");
       //final response = await http.get(
       //    "https://stocks.finance.yahoo.co.jp/stocks/detail/?code=998407.O");
-      final String json = '';
-      //response.body;
+
+      final response = await http
+          .get(Uri.parse('https://finance.yahoo.co.jp/quote/$item')); //^DJI
+      final String json = response.body;
 
       String codename;
       RegExp regExp = RegExp(r'<title>.+【');
