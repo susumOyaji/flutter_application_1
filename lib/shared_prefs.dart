@@ -1,5 +1,8 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
+
+//final SharedPreferences? _sharedPreferences=null;
+
 class SharePrefs {
   static final list_Items = "list_items";
   static final completed_Items = "completed_items";
@@ -10,12 +13,12 @@ class SharePrefs {
   static final acquiredAssets_Items = "acquiredAssets_Items";
   static final valuableAssets_Items = "valuableAssets_Items";
 
-  static SharedPreferences _sharedPreferences;
+  static SharedPreferences? _sharedPreferences;
 
   static Future setInstance() async {
     if (null != _sharedPreferences) return;
-    final SharedPreferences _sharedPreferences =
-        await SharedPreferences.getInstance(); //インスタンスを取得する
+    _sharedPreferences = await SharedPreferences.getInstance();
+
     /*
     _sharedPreferences.remove(list_Items);
     _sharedPreferences.remove(completed_Items);
@@ -24,29 +27,32 @@ class SharePrefs {
     _sharedPreferences.remove(value_Items);
     */
   }
+  
 
+  //setStringList()によって変更されたデータを更新し、新しいデータが方に保存されます。
+  //getStringList()はinitState()(そのページに切り替わったとき)、Shared Preferenceから保存されたデータを呼び出す役割をします。
   ///
   static Future<bool> setCodeItems(List<String> value) =>
-      _sharedPreferences.setStringList(code_Items, value);
+      _sharedPreferences!.setStringList(code_Items, value);
   static Future<bool> setStockItems(List<String> value) =>
-      _sharedPreferences.setStringList(stock_Items, value);
+      _sharedPreferences!.setStringList(stock_Items, value);
   static Future<bool> setValueItems(List<String> value) =>
-      _sharedPreferences.setStringList(value_Items, value);
+      _sharedPreferences!.setStringList(value_Items, value);
   static Future<bool> setacquiredAssetsItems(List<String> value) =>
-      _sharedPreferences.setStringList(acquiredAssets_Items, value);
+      _sharedPreferences!.setStringList(acquiredAssets_Items, value);
   static Future<bool> setvaluableAssetsItems(List<String> value) =>
-      _sharedPreferences.setStringList(valuableAssets_Items, value);
+      _sharedPreferences!.setStringList(valuableAssets_Items, value);
 
   static List<String> getCodeItems() =>
-      _sharedPreferences.getStringList(code_Items) ?? [];
+      _sharedPreferences!.getStringList(code_Items) ?? [];
   static List<String> getStockItems() =>
-      _sharedPreferences.getStringList(stock_Items) ?? [];
+      _sharedPreferences!.getStringList(stock_Items) ?? [];
   static List<String> getValueItems() =>
-      _sharedPreferences.getStringList(value_Items) ?? [];
+      _sharedPreferences!.getStringList(value_Items) ?? [];
   static List<String> getacquiredAssetsItems() =>
-      _sharedPreferences.getStringList(acquiredAssets_Items) ?? [];
+      _sharedPreferences!.getStringList(acquiredAssets_Items) ?? [];
   static List<String> getvaluableAssetsItems() =>
-      _sharedPreferences.getStringList(valuableAssets_Items) ?? [];
+      _sharedPreferences!.getStringList(valuableAssets_Items) ?? [];
 
   ///
 
