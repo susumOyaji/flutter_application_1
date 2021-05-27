@@ -221,7 +221,7 @@ class _MyHomePageState extends State<MyHomePage> {
     //await fetch(stdcodeItems);
     dow_responce = [];
     nikkei_responce = [];
-    dow_responce = await get_dowhtmls();
+    //dow_responce = await get_dowhtmls();
     nikkei_responce = await get_nikkeihtmls();
 
     if (!codeItems.isEmpty) {
@@ -253,9 +253,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
     //final uri = Uri.https(
     //    'https://finance.yahoo.co.jp/quote/%5EDJI', 'api/public/user');
+    
+    var url =
+      Uri.https('www.googleapis.com', '/books/v1/volumes', {'q': '{http}'});
 
-    final response = await http
-        .get(Uri.parse('https://finance.yahoo.co.jp/quote/%5EDJI')); //^DJI
+  // Await the http get response, then decode the json-formatted response.
+  var response = await http.get(url);
+
+
+    //final response = await http.get(Uri.parse('https://finance.yahoo.co.jp/quote/%5EDJI')); //^DJI
     //print('Response body: ${response.body}');
 
     String json = response.body;
