@@ -1,5 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
+//final SharedPreferences? _sharedPreferences=null;
+
 class SharePrefs {
   static final list_Items = "list_items";
   static final completed_Items = "completed_items";
@@ -15,6 +17,7 @@ class SharePrefs {
   static Future setInstance() async {
     if (null != _sharedPreferences) return;
     _sharedPreferences = await SharedPreferences.getInstance(); //インスタンスを取得する
+
     /*
     _sharedPreferences.remove(list_Items);
     _sharedPreferences.remove(completed_Items);
@@ -24,6 +27,8 @@ class SharePrefs {
     */
   }
 
+  //setStringList()によって変更されたデータを更新し、新しいデータが方に保存されます。
+  //getStringList()はinitState()(そのページに切り替わったとき)、Shared Preferenceから保存されたデータを呼び出す役割をします。
   ///
   static Future<bool> setCodeItems(List<String> value) =>
       _sharedPreferences!.setStringList(code_Items, value);
